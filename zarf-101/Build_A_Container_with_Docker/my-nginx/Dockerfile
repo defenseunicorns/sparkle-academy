@@ -17,4 +17,8 @@ COPY nginx.conf /etc/nginx/
 # the new nginx.conf file.
 EXPOSE 8080
 
+# Adding an instruction to the Dockerfile to see how it 
+# affects the build
+RUN touch /usr/share/nginx/html/some_other_index.html
+
 CMD ["nginx", "-g", "daemon off;"]
