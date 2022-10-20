@@ -17,6 +17,6 @@ spec:
   selector:
     app: my-nginx
   ports:
-    protocol: TCP
+  - protocol: TCP
     port: 80
     targetPort: 80
