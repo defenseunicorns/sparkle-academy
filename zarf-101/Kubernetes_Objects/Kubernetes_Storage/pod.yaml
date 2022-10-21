@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: storage-test
+spec:
+  volumes:
+    - name: pvc-storage
+      persistentVolumeClaim:
+        claimName: pvc-claim
+  containers:
+  - image: busybox
+    name: echo
+    volumeMounts:
+      - mountPath: "/data"
+        name: pvc-storage
+    command: ["ping", "127.0.0.1"]
