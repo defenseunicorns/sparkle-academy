@@ -4,3 +4,4 @@ metadata:
   name: nginx-conf
 data: |
   NGINX_PORT=8088
+  
