@@ -12,3 +12,21 @@ spec:
     image: nginx:1.23.1
     ports:
     - containerPort: 8088
+    env:
+      - name: NGINX_PORT
+        valueFrom:
+          configMapKeyRef:
+            name: nginx-env
+            key: NGINX_PORT
+    volumeMounts:
+    - name: config
+      mountPath: "/etc/nginx/templates/default.conf.template"
+      readOnly: true
+      subPath: nginx.conf
+  volumes:
+  - name: config
+    configMap:
+      name: nginx-conf
+      items:
+        - key: nginx.conf
+          path: nginx.conf
