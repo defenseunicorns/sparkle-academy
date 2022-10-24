@@ -25,11 +25,7 @@ spec:
         - name: index
           mountPath: "/usr/share/nginx/html/"
           readOnly: true
-          # subPath: index.html
       volumes:
       - name: index
         configMap:
           name: nginx-coffee
-          # items:
-          #   - key: index.html
-          #     path: index.html
