@@ -46,3 +46,13 @@ components:
       - ghcr.io/stefanprodan/podinfo:6.2.3
 
 ```
+
+The podinfo-values.yaml file contains an update to the replicaCount:
+
+```yaml
+# Custom values for podinfo.
+
+replicaCount: 3
+```
+
+Since the namespace and releaseName are the same, the package previously deployed will be updated in place.
