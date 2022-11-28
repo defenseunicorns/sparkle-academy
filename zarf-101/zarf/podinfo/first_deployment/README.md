@@ -40,7 +40,7 @@ components:
 
 According to the [package schema](https://docs.zarf.dev/docs/user-guide/zarf-schema), the next field required is "charts" in order to specify a Helm chart.  
 
-> **_NOTE:_** On the package schema documentaiton link, expand "components" and then "charts" to see Helm chart related documentation.
+> **_NOTE:_** On the package schema documentation link, expand "components" and then "charts" to see Helm chart related documentation.
 
 Under charts, the required fields are denoted by the asterisks and they are:
  - name
