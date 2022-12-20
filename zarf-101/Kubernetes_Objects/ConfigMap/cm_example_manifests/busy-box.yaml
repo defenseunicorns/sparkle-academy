@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busy-box-example
+spec:
+  containers:
+  - name: busy-box-example
+    image: busybox
+    command: ["/bin/echo"]
+    args: ["$(BB_PORT)"]
+    env:
+      - name: BB_PORT
+        valueFrom:
+          configMapKeyRef:
+            name: bb-env
+            key: BB_PORT
