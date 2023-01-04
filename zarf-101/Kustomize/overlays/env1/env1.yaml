@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  template:
+    spec:
+      containers:
+      - name: nginx
+        env:
+        - name: CUSTOM_ENV1_VARIABLE
+          value: Value defined by Kustomize
