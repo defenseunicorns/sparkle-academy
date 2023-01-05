@@ -11,3 +11,10 @@ commonLabels:
 
 patchesStrategicMerge:
 - env2.yaml
+
+images:
+- name: nginx 
+  newTag: 1.23.1
+
+resources:
+- namespace.yaml
