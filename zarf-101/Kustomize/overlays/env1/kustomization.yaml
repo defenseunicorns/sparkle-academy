@@ -1,8 +1,12 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-
+namespace: env1
+namePrefix: env1-
 bases:
 - ../../base
 
 patchesStrategicMerge:
 - env1.yaml
+
+resources:
+- namespace.yaml 

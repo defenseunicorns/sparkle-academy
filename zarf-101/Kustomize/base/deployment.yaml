@@ -1,18 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: default
   name: nginx-deployment
   labels:
-    app: nginx-kustomize-base
+    app: nginx-kustomize
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nginx-kustomize-base
+      app: nginx-kustomize
   template:
     metadata:
       labels:
-        app: nginx-kustomize-base
+        app: nginx-kustomize
     spec:
       containers:
       - name: nginx
