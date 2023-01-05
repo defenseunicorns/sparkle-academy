@@ -3,9 +3,11 @@ kind: Kustomization
 namespace: env2
 namePrefix: env2-
 
-
 bases:
 - ../../base
+
+commonLabels:
+  app: nginx-kustomize-env2
 
 patchesStrategicMerge:
 - env2.yaml
