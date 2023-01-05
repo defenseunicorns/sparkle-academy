@@ -5,6 +5,9 @@ namePrefix: env1-
 bases:
 - ../../base
 
+commonLabels:
+  app: nginx-kustomize-env1
+
 patchesStrategicMerge:
 - env1.yaml
 
