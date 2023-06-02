@@ -57,4 +57,4 @@ haproxy-kubernetes-ingress    NodePort       10.43.196.178   <none>        80:30
 
 Traffic needs to be directed to `haproxy-kubernetes-ingress` service in order for this ingress controller to make any forwarding decisions (keep this in mind for later).
 
-The next step is to deploy some type of application that can be used by the ingress controller.  
+The next step is to deploy some type of application that can be used by the ingress controller.  The same coffee and tea objects have been copied into the objects folder local to this README.
