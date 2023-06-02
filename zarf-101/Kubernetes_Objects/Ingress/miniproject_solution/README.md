@@ -58,3 +58,51 @@ haproxy-kubernetes-ingress    NodePort       10.43.196.178   <none>        80:30
 Traffic needs to be directed to `haproxy-kubernetes-ingress` service in order for this ingress controller to make any forwarding decisions (keep this in mind for later).
 
 The next step is to deploy some type of application that can be used by the ingress controller.  The same coffee and tea objects have been copied into the objects folder local to this README.
+
+```bash
+$ kubectl apply -f objects/
+configmap/nginx-coffee created
+deployment.apps/nginx-coffee-deployment created
+service/svc-nginx-coffee-deployment created
+ingress.networking.k8s.io/drinks-haproxy created
+configmap/nginx-tea created
+deployment.apps/nginx-tea-deployment created
+service/svc-nginx-tea-deployment created
+```
+
+Next, setup a port-forward to the HAProxy service:
+
+```bash
+$ kubectl port-forward services/haproxy-kubernetes-ingress 8082:80
+Forwarding from 127.0.0.1:8082 -> 8080
+Forwarding from [::1]:8082 -> 8080
+```
+
+Finally, try hitting the `/coffee` or `/tea` service:
+
+```bash
+$ curl http://localhost:8082/tea
+<html>
+<head>
+<title>Welcome to nginx-tea!</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx-tea!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+```
+

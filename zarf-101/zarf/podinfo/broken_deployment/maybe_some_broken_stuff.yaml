@@ -1,0 +1,8 @@
+apiVersion: v1
+data:
+  .dockerconfigjson: eyJhdXRocyI6eyJodHRwczovL2luZGV4LmRvY2tlci5pby92MS8iOnsidXNlcm5hbWUiOiJ0YWZrYW1tIiwicGFzc3dvcmQiOiJDaGFuZ2VNZSIsImF1dGgiOiJkR0ZtYTJGdGJUcERhR0Z1WjJWTlpRPT0ifX19
+kind: Secret
+metadata:
+  namespace: podinfo-broken
+  name: private-registry
+type: kubernetes.io/dockerconfigjson
