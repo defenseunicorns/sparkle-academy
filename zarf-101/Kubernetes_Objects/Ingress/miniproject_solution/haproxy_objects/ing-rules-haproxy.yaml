@@ -5,6 +5,11 @@ metadata:
   annotations:
     haproxy.org/path-rewrite: "/"
 spec:
+  defaultBackend:
+    service:
+      name: svc-nginx-catchall
+      port:
+        number: 80
   ingressClassName: haproxy
   rules:
   - host: localhost

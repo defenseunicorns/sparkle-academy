@@ -35,3 +35,5 @@ terraform.rc
 
 # Ignore zarf packages
 *.tar.zst
+
+*.DS_Store

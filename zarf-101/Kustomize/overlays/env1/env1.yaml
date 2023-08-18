@@ -7,6 +7,7 @@ spec:
     spec:
       containers:
       - name: nginx
+        #image: nginx:latest
         env:
         - name: CUSTOM_ENV1_VARIABLE
           value: Value defined by Kustomize
