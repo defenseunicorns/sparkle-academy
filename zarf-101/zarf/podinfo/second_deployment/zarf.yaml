@@ -8,11 +8,11 @@ components:
     required: true
     charts:
       - name: podinfo
-        version: 6.2.3
+        version: 6.4.1
         namespace: podinfo-helm-namespace
         releaseName: podinfo
         url: https://stefanprodan.github.io/podinfo
         valuesFiles:
           - podinfo-values.yaml
     images:
-      - ghcr.io/stefanprodan/podinfo:6.2.3
+      - ghcr.io/stefanprodan/podinfo:6.4.1
