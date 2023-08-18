@@ -15,15 +15,15 @@ components:
     required: true
     charts:
       - name: podinfo
-        version: 6.2.3
+        version: 6.4.1
         namespace: podinfo-helm-namespace
         releaseName: podinfo
         url: https://stefanprodan.github.io/podinfo
     images:
-      - ghcr.io/stefanprodan/podinfo:6.2.3
+      - ghcr.io/stefanprodan/podinfo:6.4.1
 ```
 
-The replicas part will take a little more digging.  In the values.yaml for the podinfo chart, [line three](https://github.com/stefanprodan/podinfo/blob/master/charts/podinfo/values.yaml#L3) is a "replicaCount" and that looks like exactly what is needed here.  Based on the [zarf package schema](https://docs.zarf.dev/docs/user-guide/zarf-schema), the `charts` key also supports a `valuesFile`.  Copying line 3 from the values file and updating it to three replicas will update the zarf package to the new version and up the replicaCount of the podinfo container to 3.  Zarf expects to reference any values files off of the local file system relative to the zarf.yaml file.
+The replicas part will take a little more digging.  In the values.yaml for the podinfo chart, [line three](https://github.com/stefanprodan/podinfo/blob/master/charts/podinfo/values.yaml#L3) is a "replicaCount" and that looks like exactly what is needed here.  Based on the [zarf package schema](https://docs.zarf.dev/docs/create-a-zarf-package/zarf-schema), the `charts` key also supports a `valuesFile`.  Copying line 3 from the values file and updating it to three replicas will update the zarf package to the new version and up the replicaCount of the podinfo container to 3.  Zarf expects to reference any values files off of the local file system relative to the zarf.yaml file.
 
 ```yaml
 kind: ZarfPackageConfig
@@ -36,14 +36,14 @@ components:
     required: true
     charts:
       - name: podinfo
-        version: 6.2.3
+        version: 6.4.1
         namespace: podinfo-helm-namespace
         releaseName: podinfo
         url: https://stefanprodan.github.io/podinfo
         valuesFiles:
           - podinfo-values.yaml
     images:
-      - ghcr.io/stefanprodan/podinfo:6.2.3
+      - ghcr.io/stefanprodan/podinfo:6.4.1
 
 ```
 
@@ -104,7 +104,7 @@ hpa:
 image:
   pullPolicy: IfNotPresent
   repository: ghcr.io/stefanprodan/podinfo
-  tag: 6.2.3
+  tag: 6.4.1
 ingress:
   annotations: {}
   className: ""
